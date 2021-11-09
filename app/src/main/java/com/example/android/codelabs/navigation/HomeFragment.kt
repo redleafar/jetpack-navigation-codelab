@@ -79,9 +79,11 @@ class HomeFragment : Fragment() {
 //        )
         //TODO END STEP 7.2
 
-        view.findViewById<Button>(R.id.navigate_action_button)?.setOnClickListener(
-                Navigation.createNavigateOnClickListener(R.id.next_action, null)
-        )
+        view.findViewById<Button>(R.id.navigate_action_button)?.setOnClickListener {
+            val flowStemNumberArg = 1
+            val action = HomeFragmentDirections.nextAction(flowStemNumberArg)
+            findNavController().navigate(action)
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
